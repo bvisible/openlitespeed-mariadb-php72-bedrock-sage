@@ -34,6 +34,7 @@ RUN yum -y update
 RUN yum -y install php72
 RUN yum -y install php72-php-fpm php72-php-gd php72-php-json php72-php-mbstring php72-php-mysqlnd php72-php-xml php72-php-xmlrpc php72-php-opcache
 RUN yum --enablerepo=remi-php72 install -y php-xml php-soap php-xmlrpc php-mbstring php-json php-gd php-mcrypt
+RUN yum -y install php-mysql
 
 #Install node.js and npm
 RUN yum -y install gcc-c++ make

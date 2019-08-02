@@ -29,44 +29,52 @@ wp package install aaemnnosttv/wp-cli-dotenv-command:^1.0
 php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
 php composer-setup.php --install-dir=/usr/local/bin --filename=composer
 
-#
-# Install and Config Bedrock and Sage
-#
-project=${project:=project}
-db_username=${db_username:=wp-ls}
+# Create Var
+project=${project:=your_project}
+db_username=${db_username:=wp_ls}
 db_password=$USERSQLPWD
 db_host=${db_host:=localhost}
-db_name=${project:=wp_ls}
-wp_home=$project.dev  #change .dev to .localhost or whatever you're using
+db_name=${db_name:=wp_ls}
+wp_home=$project.dev #change .dev to .localhost or whatever you're using
 wp_username=${wp_username:=admin}
 wp_password=${wp_password:=admin}
-wp_email=${wp_host:=dev@bvisible.dev}
+wp_email=${wp_host:=wordpress@project.dev}
+current_path=$(pwd)
 
 # Setup Bedrock
 cd /home/defdomain/html/
 composer create-project roots/bedrock .
 
 # Setup Env
+printf "\n${bold}Setup Env File:\n${normal}"
 wp dotenv init
+printf "DB_NAME=$db_name\nDB_USER=$db_username\nDB_PASSWORD=$db_password\nDB_HOST=$db_host\nWP_ENV=development\nWP_HOME=http://$wp_home\nWP_SITEURL=http://$wp_home/wp" | tee ".env"
+printf "\n"
 wp dotenv salts generate
 
 # Create DB
+printf "\n${bold}Create Database:\n${normal}"
 wp db create
 
 # Run WordPress Install
-wp core install --title=Bedrock --admin_user=$wp_username --admin_password=$wp_password --admin_email=$wp_email --url=$wp_home
+printf "\n${bold}Run WordPress Install:\n${normal}"
+wp core install --title=$project --admin_user=$wp_username --admin_password=$wp_password --admin_email=$wp_email --url=$wp_home
 
 # Setup WordPress Options
+printf "\n${bold}Update Defaults:\n${normal}"
 wp option update blogdescription ''
 wp option update start_of_week 0
+wp option update timezone_string 'Africa/Johannesburg'
 wp option update permalink_structure '/%postname%'
 wp rewrite flush
 
 # Remove WordPress Default Posts
+printf "\n${bold}Remove Default Posts:\n${normal}"
 wp post delete 1 --force
 wp post delete 2 --force
 
 # Remove WordPress Default Themes
+printf "\n${bold}Remove Default Themes:\n${normal}"
 #wp theme delete twentyten
 #wp theme delete twentyeleven
 #wp theme delete twentytwelve
@@ -78,12 +86,15 @@ rm -rf $(pwd)/web/wp/wp-content/themes/twentytwelve
 rm -rf $(pwd)/web/wp/wp-content/themes/twentythirteen
 rm -rf $(pwd)/web/wp/wp-content/themes/twentyfourteen
 rm -rf $(pwd)/web/wp/wp-content/themes/twentyfifteen
+printf "${bold}Success:${normal} Deleted themes.\n"
 
 # Create Homepage
+printf "\n${bold}Create Homepage:\n${normal}"
 wp post create --post_type=page --post_status=publish --post_title="Home"
 wp option update show_on_front 'page'
 
 # Install Plugins
+printf "\n${bold}Install Plugins:\n${normal}"
 $composer require wpackagist-plugin/disable-comments
 wp plugin activate disable-comments
 $composer require soberwp/intervention
@@ -92,16 +103,21 @@ wp plugin activate intervention
 #
 # Setup Sage
 #
-$composer create-project roots/sage web/app/themes/sage
+printf "\n${bold}── Sage9 ── \n${normal}"
+composer create-project roots/sage web/app/themes/sage
+cd "$(pwd)/web/app/themes/sage"
 replace "bedrock" "sage" -- assets/config.json
 git init
 git add .
 git commit -m "Init"
 
+printf "Run NPM Install:\n"
 npm install
 
+printf "Run NPM Build:\n"
 npm run build
 
+printf "Activate Sage:\n"
 wp theme activate sage
 
 chown -R nobody:nobody /home/defdomain/html
