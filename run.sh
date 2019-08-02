@@ -97,14 +97,15 @@ wp option update show_on_front 'page'
 
 # Install Plugins
 printf "\n${bold}Install Plugins:\n${normal}"
-$composer require wpackagist-plugin/disable-comments
+cd /home/defdomain/html/web/app/plugins/
+composer require roots/soil .
+wp plugin activate soil
+composer require wpackagist-plugin/disable-comments .
 wp plugin activate disable-comments
-$composer require soberwp/intervention
+composer require soberwp/intervention .
 wp plugin activate intervention
 
-#
 # Setup Sage
-#
 printf "\n${bold}── Sage9 ── \n${normal}"
 cd /home/defdomain/html/web/app/themes/
 composer create-project roots/sage .
