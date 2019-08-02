@@ -23,6 +23,7 @@ mysql -uroot -v -e "use mysql;update user set Password=PASSWORD('$ROOTSQLPWD') w
 curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
 chmod +x wp-cli.phar
 mv wp-cli.phar /usr/local/bin/wp
+cd /usr/local/bin
 php -d memory_limit=512M wp package install aaemnnosttv/wp-cli-dotenv-command:^1.0
 
 
