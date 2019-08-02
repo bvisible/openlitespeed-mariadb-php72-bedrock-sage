@@ -43,7 +43,6 @@ or pull
 docker pull bvisible/openlitespeed-mariadb-php72-bedrock-sage/
 ```
 ```
-thanks to tujuhion : https://github.com/tujuhion/docker-centos-openlitespeed-wordpress
+thanks to tujuhion : https://github.com/tujuhion/docker-centos-openlitespeed-wordpress <br>
 thanks to darrenjacoby : https://github.com/darrenjacoby/bedrock-sage-bash-setup
 thanks to Roots.io : https://roots.io/
-```
