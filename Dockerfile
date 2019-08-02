@@ -1,6 +1,6 @@
 FROM centos:latest
 
-MAINTAINER "tujuhion" <yanwar.purnama@gmail.com>
+MAINTAINER "bvisible" <info@bvisible.ch>
 
 ENV container docker
 
