@@ -50,7 +50,7 @@ composer create-project roots/bedrock .
 # Setup Env
 printf "\n${bold}Setup Env File:\n${normal}"
 wp dotenv init
-printf "DB_NAME=$db_name\nDB_USER=$db_username\nDB_PASSWORD=$db_password\nDB_HOST=$db_host\nWP_ENV=development\nWP_HOME=http://$wp_home\nWP_SITEURL=http://$wp_home/wp" | tee ".env"
+printf "DB_NAME=$db_name\nDB_USER=$db_username\nDB_PASSWORD=$db_password\nDB_HOST=$db_host\nWP_ENV=development\nWP_HOME=http://$wp_home/web\nWP_SITEURL=http://$wp_home/web/wp" | tee ".env"
 printf "\n"
 wp dotenv salts generate
 
@@ -82,12 +82,12 @@ printf "\n${bold}Remove Default Themes:\n${normal}"
 #wp theme delete twentytwelve
 #wp theme delete twentythirteen
 #wp theme delete twentyfourteen
-rm -rf $(pwd)/web/wp/wp-content/themes/twentyten
-rm -rf $(pwd)/web/wp/wp-content/themes/twentyeleven
-rm -rf $(pwd)/web/wp/wp-content/themes/twentytwelve
-rm -rf $(pwd)/web/wp/wp-content/themes/twentythirteen
-rm -rf $(pwd)/web/wp/wp-content/themes/twentyfourteen
-rm -rf $(pwd)/web/wp/wp-content/themes/twentyfifteen
+rm -rf /home/defdomain/html/web/wp/wp-content/themes/twentyten
+rm -rf /home/defdomain/html/web/wp/wp-content/themes/twentyeleven
+rm -rf /home/defdomain/html/web/wp/wp-content/themes/twentytwelve
+rm -rf /home/defdomain/html/web/wp/wp-content/themes/twentythirteen
+rm -rf /home/defdomain/html/web/wp/wp-content/themes/twentyfourteen
+rm -rf /home/defdomain/html/web/wp/wp-content/themes/twentyfifteen
 printf "${bold}Success:${normal} Deleted themes.\n"
 
 # Create Homepage
@@ -106,8 +106,9 @@ wp plugin activate intervention
 # Setup Sage
 #
 printf "\n${bold}── Sage9 ── \n${normal}"
-composer create-project roots/sage web/app/themes/sage
-cd "$(pwd)/web/app/themes/sage"
+cd /home/defdomain/html/web/app/themes/
+composer create-project roots/sage .
+cd /home/defdomain/html/web/app/themes/sage
 replace "bedrock" "sage" -- assets/config.json
 git init
 git add .
