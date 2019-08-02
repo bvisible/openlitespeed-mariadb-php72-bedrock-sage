@@ -23,7 +23,7 @@ Document root in:
 ```
 nano /home/defdomain/html/.env
 ```
-Change your_project to your local IP
+<b>Change your_project to your local IP</b>
 ```
 ## Build docker image
 git clone https://github.com/bvisible/openlitespeed-mariadb-php72-bedrock-sage.git
