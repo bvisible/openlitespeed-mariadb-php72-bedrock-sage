@@ -25,18 +25,9 @@ chmod +x wp-cli.phar
 mv wp-cli.phar /usr/local/bin/wp
 wp package install aaemnnosttv/wp-cli-dotenv-command:^1.0
 
-#Install php-cli
-yum install -y php-cli php-zip wget unzip
-
 #Install composer php
 php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
 php composer-setup.php --install-dir=/usr/local/bin --filename=composer
-
-#Install node.js and npm
-yum install -y gcc-c++ make
-curl -sL https://rpm.nodesource.com/setup_6.x
-yum install -y nodejs
-
 
 #
 # Install and Config Bedrock and Sage
@@ -114,23 +105,6 @@ npm run build
 wp theme activate sage
 
 chown -R nobody:nobody /home/defdomain/html
-
-#Install nano
-yum install -y nano
-
-#Install php72
-yum install -y epel-release
-yum install -y http://rpms.remirepo.net/enterprise/remi-release-7.rpm
-yum install -y yum-utils
-yum-config-manager --enable remi-php72
-yum update -y 
-yum install -y php72
-yum install -y php72-php-fpm php72-php-gd php72-php-json php72-php-mbstring php72-php-mysqlnd php72-php-xml php72-php-xmlrpc php72-php-opcache
-yum --enablerepo=remi-php72 install -y php-xml php-soap php-xmlrpc php-mbstring php-json php-gd php-mcrypt
-
-#Install dev tools for openlitespeed
-yum groupinstall -y "Development Tools"
-yum install -y libxml2-devel openssl-devel curl-devel libpng* 
 
 #Delete Install file
 rmdir wordpress
