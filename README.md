@@ -1,13 +1,15 @@
-# Docker Wordpress with Centos7 Openlitespeed MariaDB10.2 ProFTPD PHP7.2
+# Docker Bedrock + Sage with Centos7 Openlitespeed MariaDB10.2 ProFTPD PHP7.2
 
 This Docker will run
 
 - Centos 7
-- Wordpress
+- Bedrock (roots.io)
+- Sage (roots.io)
 - Openlitespedd
 - MariaDB10.2
 - ProFTPD
 - PHP 7.2
+- WP CLI
 
 you can access litespeed admin in http://your_project:7080, set password with command
 
