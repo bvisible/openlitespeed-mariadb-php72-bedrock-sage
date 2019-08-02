@@ -44,7 +44,7 @@ wp_email=${wp_host:=dev@bvisible.dev}
 
 # Setup Bedrock
 cd /home/defdomain/html/
-$composer create-project roots/bedrock .
+composer create-project roots/bedrock .
 
 # Setup Env
 wp dotenv init
@@ -105,8 +105,3 @@ npm run build
 wp theme activate sage
 
 chown -R nobody:nobody /home/defdomain/html
-
-#Delete Install file
-rmdir wordpress
-rm latest.tar.gz
-rm /tmp/wp.keys
