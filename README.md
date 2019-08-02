@@ -42,7 +42,7 @@ Can found in https://hub.docker.com/r/bvisible/openlitespeed-mariadb-php72-bedro
 or pull
 ```
 docker pull bvisible/openlitespeed-mariadb-php72-bedrock-sage/
-
+```
 thanks to tujuhion : https://github.com/tujuhion/docker-centos-openlitespeed-wordpress
 thanks to darrenjacoby : https://github.com/darrenjacoby/bedrock-sage-bash-setup
 thanks to Roots.io : https://roots.io/
