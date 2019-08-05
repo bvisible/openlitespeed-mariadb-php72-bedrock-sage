@@ -35,13 +35,13 @@ Run docker image
 docker run openlitespeed-mariadb-php72-bedrock-sage
 ```
 
-##Active rewrite url
+## Active rewrite url
 Virtual Hosts => View => Rewrite 
 ```
 rewriteFile /home/defdomain/html/.htaccess = rewriteFile /home/defdomain/html/web/.htaccess
 ```
 
-##Mod dev - disable cache 
+## Mod dev - disable cache 
 Server Configuration => Modules => View => Modif
 ```
 enableCache 0
