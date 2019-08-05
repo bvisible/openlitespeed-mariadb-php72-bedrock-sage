@@ -84,6 +84,7 @@ printf "\n${bold}Remove Default Themes:\n${normal}"
 #wp theme delete twentyfourteen
 rm -rf /home/defdomain/html/web/wp/wp-content/themes/twentyseventeen
 rm -rf /home/defdomain/html/web/wp/wp-content/themes/twentysixteen
+
 rm -rf /home/defdomain/html/web/app/themes/twentyseventeen
 rm -rf /home/defdomain/html/web/spp/themes/twentysixteen
 printf "${bold}Success:${normal} Deleted themes.\n"

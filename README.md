@@ -23,7 +23,7 @@ Document root in:
 ```
 nano /home/defdomain/html/.env
 ```
-Change your_project to your local IP
+<b>Change your_project to your local IP</b>
 ```
 ## Build docker image
 git clone https://github.com/bvisible/openlitespeed-mariadb-php72-bedrock-sage.git
@@ -35,15 +35,16 @@ Run docker image
 docker run openlitespeed-mariadb-php72-bedrock-sage
 ```
 ## Hub Docker
-```
+
 Can found in https://hub.docker.com/r/bvisible/openlitespeed-mariadb-php72-bedrock-sage/
-```
+
 or pull
 ```
 docker pull bvisible/openlitespeed-mariadb-php72-bedrock-sage/
 ```
-```
-thanks to tujuhion : https://github.com/tujuhion/docker-centos-openlitespeed-wordpress
+
+thanks to tujuhion : https://github.com/tujuhion/docker-centos-openlitespeed-wordpress 
+
 thanks to darrenjacoby : https://github.com/darrenjacoby/bedrock-sage-bash-setup
+
 thanks to Roots.io : https://roots.io/
-```
