@@ -82,12 +82,10 @@ printf "\n${bold}Remove Default Themes:\n${normal}"
 #wp theme delete twentytwelve
 #wp theme delete twentythirteen
 #wp theme delete twentyfourteen
-rm -rf /home/defdomain/html/web/wp/wp-content/themes/twentyten
-rm -rf /home/defdomain/html/web/wp/wp-content/themes/twentyeleven
-rm -rf /home/defdomain/html/web/wp/wp-content/themes/twentytwelve
-rm -rf /home/defdomain/html/web/wp/wp-content/themes/twentythirteen
-rm -rf /home/defdomain/html/web/wp/wp-content/themes/twentyfourteen
-rm -rf /home/defdomain/html/web/wp/wp-content/themes/twentyfifteen
+rm -rf /home/defdomain/html/web/wp/wp-content/themes/twentyseventeen
+rm -rf /home/defdomain/html/web/wp/wp-content/themes/twentysixteen
+rm -rf /home/defdomain/html/web/app/themes/twentyseventeen
+rm -rf /home/defdomain/html/web/spp/themes/twentysixteen
 printf "${bold}Success:${normal} Deleted themes.\n"
 
 # Create Homepage
@@ -99,7 +97,7 @@ wp option update show_on_front 'page'
 printf "\n${bold}Install Plugins:\n${normal}"
 composer require wpackagist-plugin/disable-comments
 wp plugin activate disable-comments
-composer require soberwp/intervention
+wp plugin instal litespeed-cache --activate
 wp plugin activate intervention
 composer require roots/soil
 wp plugin activate soil
@@ -107,7 +105,7 @@ wp plugin activate soil
 #
 # Setup Sage
 #
-printf "\n${bold}    Sage9     \n${normal}"
+printf "\n${bold}── Sage9 ── \n${normal}"
 cd /home/defdomain/html/web/app/themes
 composer create-project roots/sage
 cd /home/defdomain/html/web/app/themes/sage
@@ -123,6 +121,6 @@ printf "Run NPM Build:\n"
 npm run build
 
 printf "Activate Sage:\n"
-wp theme activate sage
+wp theme activate Sage Starter Theme
 
 chown -R nobody:nobody /home/defdomain/html
