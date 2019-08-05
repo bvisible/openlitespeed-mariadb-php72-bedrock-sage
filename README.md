@@ -34,6 +34,47 @@ Run docker image
 ```
 docker run openlitespeed-mariadb-php72-bedrock-sage
 ```
+
+##Active rewrite url
+Virtual Hosts => View => Rewrite 
+```
+rewriteFile /home/defdomain/html/.htaccess = rewriteFile /home/defdomain/html/web/.htaccess
+```
+
+##Mod dev - disable cache 
+Server Configuration => Modules => View => Modif
+```
+enableCache 0
+qsCache 0
+reqCookieCache 1
+respCookieCache 1
+ignoreReqCacheCtrl 1
+ignoreRespCacheCtrl 0
+enablePrivateCache 0
+privateExpireInSeconds 1000
+expireInSeconds 1000
+storagePath cachedata
+checkPrivateCache 1
+checkPublicCache 1
+```
+Enable Module => Yes
+
+Original config
+```
+enableCache 1
+qsCache 1
+reqCookieCache 1
+respCookieCache 1
+ignoreReqCacheCtrl 1
+ignoreRespCacheCtrl 0
+enablePrivateCache 0
+privateExpireInSeconds 1000
+expireInSeconds 1000
+storagePath cachedata
+checkPrivateCache 1
+checkPublicCache 1
+```
+
 ## Hub Docker
 
 Can found in https://hub.docker.com/r/bvisible/openlitespeed-mariadb-php72-bedrock-sage/
