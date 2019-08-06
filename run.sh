@@ -66,7 +66,7 @@ wp core install --title=$project --admin_user=$wp_username --admin_password=$wp_
 printf "\n${bold}Update Defaults:\n${normal}"
 wp option update blogdescription ''
 wp option update start_of_week 0
-wp option update timezone_string 'Africa/Johannesburg'
+wp option update timezone_string 'Paris'
 wp option update permalink_structure '/%postname%'
 wp rewrite flush
 
@@ -110,7 +110,6 @@ printf "\n${bold}Install Plugins:\n${normal}"
 composer require wpackagist-plugin/disable-comments
 wp plugin activate disable-comments
 wp plugin install litespeed-cache --activate
-wp plugin activate intervention
 composer require roots/soil
 wp plugin activate soil
 

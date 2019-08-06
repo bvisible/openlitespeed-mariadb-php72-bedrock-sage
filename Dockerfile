@@ -38,7 +38,7 @@ RUN yum -y install php-mysql
 
 #Install node.js and npm
 RUN yum -y install gcc-c++ make
-RUN curl -sL https://rpm.nodesource.com/setup_6.x
+RUN curl -sL https://rpm.nodesource.com/setup_10.x
 RUN yum -y install nodejs
 
 #Install nano
